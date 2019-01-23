@@ -76,3 +76,27 @@ function binarySearchTwoSum(array, sum) {
   }
   return results
 }
+
+function binaryMatch(sortedArr, missingNum) {
+  for (let i = 0; i<sortedArr.length; i++) {
+    let binaryIndex = binarySearch(sortedArr, missingNum)
+
+    if (binaryIndex) {
+      return true
+    }
+  }
+}
+
+function hashTwoSum(array, sum) {
+  let map = {}
+  let results = []
+
+  for (let i=0; i<array.length; i++) {
+    if (map[array[i]] !== undefined) {
+      results.push([map[array[i]], array[i]])
+    } else {
+      map[sum - array[i]] = array[i]
+    }
+  }
+  return results
+}
